@@ -1,8 +1,7 @@
 """
-============================================================================
-PROJET GMQ710 - DÉTECTION DE CHANGEMENTS EN MONTÉRÉGIE
-Script Python complet intégrant toutes les fonctionnalités
-============================================================================
+
+################# PROJET GMQ710 - DÉTECTION DE CHANGEMENTS EN MONTÉRÉGIE ###############################
+
 """
 
 import os
@@ -25,9 +24,9 @@ from skimage.filters import threshold_otsu
 from skimage.segmentation import felzenszwalb
 
 
-# ============================================================================
-# CONFIGURATION
-# ============================================================================
+# 
+####################### CONFIGURATION 
+# 
 
 class Config:
     """Configuration centralisée du projet"""
@@ -60,9 +59,9 @@ class Config:
             os.makedirs(directory, exist_ok=True)
 
 
-# ============================================================================
-# CHARGEMENT DES DONNÉES
-# ============================================================================
+# 
+############################### CHARGEMENT DES DONNÉES 
+# 
 
 class DataLoader:
     """Gestion du chargement des données raster"""
@@ -125,9 +124,9 @@ class DataLoader:
         return out_image[0], out_meta
 
 
-# ============================================================================
-# DÉTECTION DE CHANGEMENTS SIMPLE
-# ============================================================================
+# 
+############################## DÉTECTION DE CHANGEMENTS SIMPLE
+# 
 
 class ChangeDetector:
     """Méthodes de détection de changements simples"""
@@ -192,9 +191,9 @@ class ChangeDetector:
         print(f"✓ Sauvegardé: {chemin}")
 
 
-# ============================================================================
-# MÉTHODES AVANCÉES
-# ============================================================================
+# 
+############################## MÉTHODES AVANCÉES
+#
 
 class AdvancedMethods:
     """Méthodes avancées: segmentation, classification, clustering"""
@@ -267,9 +266,9 @@ class AdvancedMethods:
         return pred_map
 
 
-# ============================================================================
-# VISUALISATION
-# ============================================================================
+# 
+###################################### VISUALISATION
+# 
 
 class Visualizer:
     """Génération de visualisations"""
@@ -356,9 +355,9 @@ class Visualizer:
         plt.close(fig)
 
 
-# ============================================================================
-# EXPORT VERS SIG
-# ============================================================================
+# 
+############################# EXPORT VERS SIG
+# 
 
 class SIGExporter:
     """Exportation vers formats SIG"""
@@ -419,9 +418,9 @@ class SIGExporter:
         return stats
 
 
-# ============================================================================
-# PIPELINE PRINCIPAL
-# ============================================================================
+# 
+###################################### PIPELINE PRINCIPAL
+# 
 
 class Pipeline:
     """Pipeline complet d'analyse"""
@@ -548,16 +547,3 @@ class Pipeline:
         print("ANALYSE TERMINÉE")
         print("="*60)
         print(f"\nRésultats disponibles dans: {Config.OUTPUT_DIR}/")
-
-
-# ============================================================================
-# POINT D'ENTRÉE
-# ============================================================================
-
-if __name__ == "__main__":
-    # Exécuter le pipeline complet
-    Pipeline.analyse_complete()
-    
-    # Ou exécuter des analyses spécifiques:
-    # Pipeline.analyse_simple(2015, 2020)
-    # Pipeline.analyse_clustering(2015, 2020, n_clusters=5)
