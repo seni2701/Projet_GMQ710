@@ -12,6 +12,8 @@ Développer une chaîne automatisée pour identifier et cartographier les change
 | Limites administratives Montérégie | Vecteur | Shapefile | Délimitation de la zone d'étude et découpage des images |
 | Carte d'occupation du sol 2020 (MELCCFP) | Raster | GeoTIFF | Validation et comparaison des résultats de détection |
 
+Les indices sont disponibles ici : C:\Users\DINO\OneDrive\Documents\gmq710
+
 ## Approche / Méthodologie envisagée
 
 La démarche se déroule en cinq étapes progressives allant du simple vers le complexe.
