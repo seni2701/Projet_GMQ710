@@ -25,6 +25,7 @@ La démarche se déroule en cinq étapes progressives allant du simple vers le c
 **Étape 3 - Détection simple:** Application de seuils empiriques sur les différences d’indices (ΔNDVI, ΔNBR, ΔNDWI) entre deux dates consécutives afin d’identifier les zones de changement significatif. Cette approche produit une classification binaire (changement / non-changement) servant de référence simple.
 
 **Étape 4 - Méthodes avancées:** 
+
 **Étape 4.1 - Segmentation spatiale (scikit-image):** Une segmentation basée sur la similarité spectrale et spatiale est appliquée aux cartes de variations d’indices afin de regrouper les pixels en objets homogènes. Les changements sont ensuite détectés à l’échelle des segments, ce qui permet de réduire le bruit et d’améliorer la cohérence spatiale.
 
 **Étape 4.2 - Clustering non supervisé (K-means):** Les variations multi-indices (ΔNDVI, ΔNBR, ΔNDWI) sont combinées dans un espace multi-dimensionnel et regroupées par clustering K-means. Les clusters sont interprétés a posteriori comme différents types ou intensités de changement.
