@@ -22,9 +22,14 @@ La démarche se déroule en cinq étapes progressives allant du simple vers le c
 
 **Étape 2 - Calcul des indices spectraux:** Sur GEE, nous calculons le NDVI pour la vigueur végétale, le NBR pour les perturbations forestières et le NDWI pour les variations d'humidité. Les variations temporelles de ces indices forment la base de la détection.
 
-**Étape 3 - Détection simple:** Application de seuils sur les différences ou ratios d'indices entre deux dates pour isoler les zones de changement significatif et produire une classification binaire initiale.
+**Étape 3 - Détection simple:** Application de seuils empiriques sur les différences d’indices (ΔNDVI, ΔNBR, ΔNDWI) entre deux dates consécutives afin d’identifier les zones de changement significatif. Cette approche produit une classification binaire (changement / non-changement) servant de référence simple.
 
-**Étape 4 - Méthodes avancées:** Segmentation avec scikit-image, classification supervisée avec RandomForest et clustering K-means pour révéler des changements subtils. Comparaison des approches selon leur cohérence spatiale et taux de fausses détections.
+**Étape 4 - Méthodes avancées:** 
+**Étape 4.1 - Segmentation spatiale (scikit-image):** Une segmentation basée sur la similarité spectrale et spatiale est appliquée aux cartes de variations d’indices afin de regrouper les pixels en objets homogènes. Les changements sont ensuite détectés à l’échelle des segments, ce qui permet de réduire le bruit et d’améliorer la cohérence spatiale.
+
+**Étape 4.2 - Clustering non supervisé (K-means):** Les variations multi-indices (ΔNDVI, ΔNBR, ΔNDWI) sont combinées dans un espace multi-dimensionnel et regroupées par clustering K-means. Les clusters sont interprétés a posteriori comme différents types ou intensités de changement.
+
+**Étape 4.3 - Comparaison des approches avancées:** Les approches de segmentation et de clustering sont comparées selon : leur cohérence spatiale, la stabilité des zones détectées d’une année à l’autre, et leur sensibilité au bruit par rapport à la détection simple par seuils.
 
 **Étape 5 - Production et exportation:** Génération de rasters de variation et vectorisation des zones de changement en shapefiles/GeoJSON. Visualisation finale dans QGIS avec statistiques par type de changement et par secteur.
 
