@@ -89,7 +89,7 @@ def visualiser_changements(changements, delta, titre, nom_fichier, decim=20):
 
     plt.tight_layout()
     plt.savefig(os.path.join(OUTPUT_DIR, nom_fichier), dpi=300, bbox_inches='tight')
-    plt.close()
+    plt.show()
     print(f"✓ {nom_fichier} sauvegardé (décimation x{decim})")
 
 def vectoriser_changements(changements, transform, crs, nom_fichier, format_export='shp'):
@@ -193,7 +193,7 @@ def analyse_clustering(annee1, annee2, n_clusters=4):
     plt.colorbar(im, ax=ax)
     plt.tight_layout()
     plt.savefig(os.path.join(OUTPUT_DIR, f'clusters_{annee1}_{annee2}.png'), dpi=300, bbox_inches='tight')
-    plt.close()
+    plt.show()
     print(f"✓ clusters_{annee1}_{annee2}.png sauvegardé (décimation x20)")
 
 def analyse_multi_indices(annee1, annee2):
@@ -327,3 +327,4 @@ if __name__ == "__main__":
     print("\nTERMINÉ!")
     print(f"Résultats dans: {OUTPUT_DIR}/")
     print("="*60 + "\n")
+
